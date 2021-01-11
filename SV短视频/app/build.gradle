@@ -1,0 +1,84 @@
+plugins {
+    id 'com.android.application'
+}
+apply plugin: 'com.mob.sdk'
+
+MobSDK {
+    appKey "320a28c35e410"
+    appSecret "b4d1db60cc300fd5857042a2569b6178"
+    SMSSDK {}
+}
+android {
+    compileSdkVersion 29
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdkVersion 25
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+ //   def viewDependencies = rootProject.ext.viewDependencies
+  //  def androidDependencies = rootProject.ext.androidDependencies
+  //  def dataDependencies = rootProject.ext.dataDependencies
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':medialib')
+//    implementation 'com.github.cmcy:media-selector:#lastVersion'
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-core:1.0.15'
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native-armeabi-v7a:1.0.15'
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native-x86:1.0.15'
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native-x86_64:1.0.15'
+    implementation 'com.github.wseemann:FFmpegMediaMetadataRetriever-native-arm64-v8a:1.0.15'
+    implementation 'androidx.navigation:navigation-fragment:2.2.2'
+    implementation 'androidx.navigation:navigation-ui:2.2.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation project(path: ':medialib')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.jakewharton:butterknife:10.1.0'
+   // implementation androidDependencies.recyclerView
+  //  implementation viewDependencies.DanmakuFlameMaster
+  //  implementation viewDependencies.ndkbitmap_armv7a
+  //  implementation viewDependencies.ndkbitmap_armv5
+  //  implementation viewDependencies.ndkbitmap_x86
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+ //   implementation androidDependencies.support_v4
+  //  implementation androidDependencies.design
+  //  implementation androidDependencies.viewpager2
+    implementation 'com.squareup.okhttp3:okhttp:4.5.0'
+    implementation 'com.shuyu:gsyVideoPlayer-java:8.0.0'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+//是否需要ExoPlayer模式
+    implementation 'com.shuyu:GSYVideoPlayer-exo2:8.0.0'
+
+//更多ijk的编码支持
+    implementation 'com.shuyu:gsyVideoPlayer-ex_so:8.0.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

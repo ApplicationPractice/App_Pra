@@ -1,0 +1,4 @@
+include ':medialib'
+include ':mylibrary'
+include ':app'
+rootProject.name = "My Application"
